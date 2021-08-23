@@ -5,24 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="./css/index.css" rel="stylesheet">
     <title>BITWIN - Qual será o número?</title>
 
 </head>
 <body class="bg-red-800">
-    <div class="flex flex-col sm:flex-row w-full border h-screen content-center">
-        <div id="ad1" class="border flex-auto w-1/6 left-0 h-screen hidden sm:block bg-red-600"></div>
-        <div id="game" class="text-center flex-auto w-4/6 border mx-auto">
-            <p id="dialogo" class="text-4xl text-center text-white mb-16"></p>
-            <input type="text" name="chute" id="chute" class="w-40 h-12 text-center mx-auto rounded-md text-2xl">
-            <div class="flex flex-row mx-auto">
-                <input type="button" value="Chutar" id="btChute">  
-                <input type="button" value="Começar" id="btRecomeça">
-            </div>  
-            <p id="dica"></p>  
-            <p id="lista"></p>
+    <div class="flex flex-col sm:flex-row w-full h-screen items-center content-center">
+        <div id="ad1" class="flex w-1/6 left-0 h-screen hidden sm:block items-center justify-center">
+            <img src="./assets/ad-skyscrapper.jpg" class="flex-1" />
         </div>
-        <div id="ad2" class="border flex-auto w-1/6 right-0 h-screen hidden sm:block bg-red-600"></div>
-        <div id="adM" class="border w-full bottom-0 sm:hidden h-24 bg-red-600"></div>
+        <div id="game" class="text-center flex-auto w-4/6  mx-auto pt-40">
+            <p id="dialogo" class="text-5xl text-center text-white mb-8 fredoka"></p>
+            <input type="text" name="chute" id="chute" class="w-40 h-16 text-center mx-auto rounded-md text-2xl fredoka mb-8 cursor-pointer">
+            <div class="flex justify-center mt-6">
+                <input type="button" value="CHUTAR" id="btChute" class="mr-5 w-40 h-12 text-2xl text-yellow-900 rounded-xl bg-yellow-400 fredoka shadow-md cursor-pointer">  
+                <input type="button" value="RESET" id="btRecomeça"  class="ml-5 w-40 h-12 text-2xl text-yellow-900 rounded-xl bg-yellow-400 fredoka shadow-md cursor-pointer">
+            </div>  
+            <p id="lista" class="text-4xl text-center text-white mb-4 fredoka"></p>
+        </div>
+        <div id="ad2" class="flex-auto w-1/6 right-0 h-screen hidden sm:block">
+            <img src="./assets/ad-skyscrapper.jpg" class="" />
+        </div>
+        <div id="adM" class="hidden w-full bottom-0 sm:hidden h-24 bg-red-600">
+        </div>
     </div>
 </body>
 

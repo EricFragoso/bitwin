@@ -5,7 +5,7 @@ var tentativas=[];
 
 
 function geraNumeros(){   
-    inicial = getRandom(config.minInicial, config.maxInical);
+    inicial = getRandom(config.minInicial, config.maxInicial);
     final = getRandom(config.minFinal, config.maxFinal);
     alvo = getRandom(inicial, final);   
     
@@ -23,15 +23,15 @@ function getRandom(min,max){
 function verificaNumero(numero){
 
     if (numero > alvo){
-        atualizaLista(numero, "<");
+        atualizaLista("<",numero);
         return ('Menor');        
     }else{
         if (numero<alvo){
-            atualizaLista(numero, ">");
+            atualizaLista(">",numero);
             return ('Maior')
         }else{
-            atualizaLista(numero, "=");
-            return ('Aê Porra')
+            atualizaLista("=",numero);
+            return ('BITWIN')
         }
     }
 }
