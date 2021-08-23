@@ -4,18 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <title>Joguinho</title>
 
 </head>
-<body>
-    <p id="dialogo"></p>
-    <input type="text" name="chute" id="chute">
-    <input type="button" value="Chutar" id="btChute">  
-    <input type="button" value="Começar" id="btRecomeça">  
-    <p id="dica"></p>  
-    <p id="lista"></p>  
+<body class="bg-red-800">
+    <div class="flex flex-col sm:container mx-auto pt-40">
+        <p id="dialogo" class="text-4xl text-center text-white mb-16"></p>
+        <input type="text" name="chute" id="chute" class="w-40 h-12 text-center mx-auto rounded-md text-2xl">
+        <div class="flex flex-row mx-auto">
+            <input type="button" value="Chutar" id="btChute">  
+            <input type="button" value="Começar" id="btRecomeça">
+        </div>  
+        <p id="dica"></p>  
+        <p id="lista"></p>
+    </div>
 </body>
 
 <script src="js/config/setup.js"></script>
-<script src="js/engine/index.js"/></script>
+<script src="js/engine/index.js"></script>
 </html>
