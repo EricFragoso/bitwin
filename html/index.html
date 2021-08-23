@@ -11,21 +11,21 @@
 </head>
 <body class="bg-red-800">
     <div class="flex flex-col sm:flex-row w-full h-screen items-center content-center">
-        <div id="ad1" class="flex w-1/6 left-0 h-screen hidden sm:block items-center justify-center">
-            <img src="./assets/ad-skyscrapper.jpg" class="flex-1" />
+        <div id="ad1" class="w-1/6 left-0 hidden sm:block items-center">
+            <img src="./assets/ad-skyscrapper.jpg" height="690" width="128" class="mx-auto" />
         </div>
-        <div id="game" class="text-center flex-auto w-4/6  mx-auto pt-40">
+        <div id="game" class="text-center w-3/6 mx-auto border-4 border-red-500 bg-red-700 shadow-xl px-10 py-10 rounded-3xl">
             <p id="dialogo" class="text-5xl text-center text-white mb-8 fredoka"></p>
-            <input type="text" name="chute" id="chute" class="w-40 h-16 text-center mx-auto rounded-md text-2xl fredoka mb-8 cursor-pointer">
+            <input type="text" name="chute" id="chute" class="outline-none w-40 h-16 text-center mx-auto rounded-md text-2xl fredoka mb-8 cursor-pointer ring-3 ring-yellow-400">
             <div class="flex justify-center mt-6">
-                <input type="button" value="CHUTAR" id="btChute" class="mr-5 w-40 h-12 text-2xl text-yellow-900 rounded-xl bg-yellow-400 fredoka shadow-md cursor-pointer">  
-                <input type="button" value="RESET" id="btRecomeça"  class="ml-5 w-40 h-12 text-2xl text-yellow-900 rounded-xl bg-yellow-400 fredoka shadow-md cursor-pointer">
+                <input type="button" value="CHUTAR" id="btChute" class="py-3 border-4 border-yellow-600 border-opacity-60 mr-5 w-40 text-2xl text-yellow-900 rounded-xl bg-yellow-400 fredoka shadow-md cursor-pointer">  
+                <input type="button" value="RESET" id="btRecomeça"  class="py-3 border-4 border-yellow-600 border-opacity-60 ml-5 w-40 text-2xl text-yellow-900 rounded-xl bg-yellow-400 fredoka shadow-md cursor-pointer">
             </div> 
             <p id="dica" class="text-4xl text-center text-white mb-4 fredoka"></p>
             <p id="lista" class="text-4xl text-center text-white mb-4 fredoka"></p>
         </div>
-        <div id="ad2" class="flex-auto w-1/6 right-0 h-screen hidden sm:block">
-            <img src="./assets/ad-skyscrapper.jpg" class="" />
+        <div id="ad2" class="w-1/6 right-0 hidden sm:block items-center">
+            <img src="./assets/ad-skyscrapper.jpg" height="690" width="128" class="mx-auto" />
         </div>
         <div id="adM" class="hidden w-full bottom-0 sm:hidden h-24 bg-red-600">
         </div>

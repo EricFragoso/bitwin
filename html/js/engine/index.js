@@ -50,6 +50,7 @@ document.getElementById('btChute').addEventListener("click", function(){
  document.getElementById('btRecomeça').addEventListener("click", function(){
     document.getElementById('dialogo').innerHTML = geraNumeros();
     document.getElementById('lista').innerHTML = '';
+    document.getElementById('dica').innerHTML = '';
     document.getElementById('chute').value = '';
     tentativas = [];
  });
