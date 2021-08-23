@@ -5,19 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    <title>Joguinho</title>
+    <title>BITWIN - Qual será o número?</title>
 
 </head>
 <body class="bg-red-800">
-    <div class="flex flex-col sm:container mx-auto pt-40">
-        <p id="dialogo" class="text-4xl text-center text-white mb-16"></p>
-        <input type="text" name="chute" id="chute" class="w-40 h-12 text-center mx-auto rounded-md text-2xl">
-        <div class="flex flex-row mx-auto">
-            <input type="button" value="Chutar" id="btChute">  
-            <input type="button" value="Começar" id="btRecomeça">
-        </div>  
-        <p id="dica"></p>  
-        <p id="lista"></p>
+    <div class="flex flex-col sm:flex-row w-full border h-screen content-center">
+        <div id="ad1" class="border flex-auto w-1/6 left-0 h-screen hidden sm:block bg-red-600"></div>
+        <div id="game" class="text-center flex-auto w-4/6 border mx-auto">
+            <p id="dialogo" class="text-4xl text-center text-white mb-16"></p>
+            <input type="text" name="chute" id="chute" class="w-40 h-12 text-center mx-auto rounded-md text-2xl">
+            <div class="flex flex-row mx-auto">
+                <input type="button" value="Chutar" id="btChute">  
+                <input type="button" value="Começar" id="btRecomeça">
+            </div>  
+            <p id="dica"></p>  
+            <p id="lista"></p>
+        </div>
+        <div id="ad2" class="border flex-auto w-1/6 right-0 h-screen hidden sm:block bg-red-600"></div>
+        <div id="adM" class="border w-full bottom-0 sm:hidden h-24 bg-red-600"></div>
     </div>
 </body>
 
