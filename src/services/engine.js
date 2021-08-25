@@ -41,16 +41,16 @@ function atualizaLista(numero, sinal){
 }
 
 
-document.getElementById('dialogo').dangerouslySetInnerHTML = geraNumeros();
+document.getElementById('dialogo').innerHTML = geraNumeros();
 document.getElementById('btChute').addEventListener("click", function(){
-    document.getElementById('dica').dangerouslySetInnerHTML = verificaNumero(document.getElementById('chute').value)
-    document.getElementById('lista').dangerouslySetInnerHTML = tentativas.join();
+    document.getElementById('dica').innerHTML = verificaNumero(document.getElementById('chute').value)
+    document.getElementById('lista').innerHTML = tentativas.join();
  });
 
  document.getElementById('btRecomeça').addEventListener("click", function(){
-    document.getElementById('dialogo').dangerouslySetInnerHTML = geraNumeros();
-    document.getElementById('lista').dangerouslySetInnerHTML = '';
-    document.getElementById('dica').dangerouslySetInnerHTML = '';
+    document.getElementById('dialogo').innerHTML = geraNumeros();
+    document.getElementById('lista').innerHTML = '';
+    document.getElementById('dica').innerHTML = '';
     document.getElementById('chute').value = '';
     tentativas = [];
  });
