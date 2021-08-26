@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
+import io from "socket.io-client";
+
+const socket=io('http://92f4-179-34-115-136.ngrok.io');
 
 ReactDOM.render(
   (
