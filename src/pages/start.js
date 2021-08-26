@@ -16,7 +16,7 @@ function Start() {
                 </header>
                 <div className="flex flex-row items-center justify-around bg-red-700 rounded-3xl px-10 py-8 w-7/12 h-96 py-14">
                     <div id="casual" className="flex flex-1 border-r-2 border-red-800 h-full items-center justify-center flex-col px-8">
-                        <h3 className="text-3xl text-left fredoka text-white mb-8">CASUAL</h3>
+                        <h3 className="text-3xl text-left fredoka text-white mb-8">JOGAR</h3>
                         <p id="disclaimer" className="text-md text-left fredoka text-white">Aqui é pra entrar e já se divertir com pessoas ao redor do mundo. Será que você é bom o bastante?</p>
                         <input type="text" placeholder="Seu nick" id="nick" className="mt-5 outline-none w-60 h-24 text-center mx-auto rounded-md text-2xl fredoka cursor-pointer shadow-md shadow-opacity-100" />
                         <Link to="/casual" id="btCasual" className="py-3 mt-8 border-4 border-green-600 border-opacity-60 px-6 text-2xl text-green-900 rounded-xl bg-green-400 fredoka shadow-md cursor-pointer">JOGAR</Link>  
