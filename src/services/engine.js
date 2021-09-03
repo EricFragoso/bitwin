@@ -1,10 +1,17 @@
-var inicial;
+/*var inicial;
 var final;
 var alvo; 
 var tentativas=[];
 
 
-function geraNumeros(){   
+export function GeraNumeros(){  
+    const config={
+        minInicial:1,
+        maxInicial:10,
+        minFinal:50,
+        maxFinal:100
+    }
+ 
     inicial = getRandom(config.minInicial, config.maxInicial);
     final = getRandom(config.minFinal, config.maxFinal);
     alvo = getRandom(inicial, final);   
@@ -20,7 +27,7 @@ function getRandom(min,max){
     return final
 }
 
-function verificaNumero(numero){
+/*function verificaNumero(numero){
 
     if (numero > alvo){
         atualizaLista("<",numero);
@@ -41,18 +48,18 @@ function atualizaLista(numero, sinal){
 }
 
 
-document.getElementById('dialogo').innerHTML = geraNumeros();
+document.getElementById('dialogo').innerHTML = GeraNumeros();
 document.getElementById('btChute').addEventListener("click", function(){
     document.getElementById('dica').innerHTML = verificaNumero(document.getElementById('chute').value)
     document.getElementById('lista').innerHTML = tentativas.join();
  });
 
  document.getElementById('btRecomeça').addEventListener("click", function(){
-    document.getElementById('dialogo').innerHTML = geraNumeros();
+    document.getElementById('dialogo').innerHTML = GeraNumeros();
     document.getElementById('lista').innerHTML = '';
     document.getElementById('dica').innerHTML = '';
     document.getElementById('chute').value = '';
     tentativas = [];
- });
+ });*/
 
 
