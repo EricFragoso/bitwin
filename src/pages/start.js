@@ -1,10 +1,37 @@
+import { useState } from 'react';
 import '../assets/fonts.css';
-import {Link} from "react-router-dom";
-import {Adsense} from '@ctrl/react-adsense';
+import { Link } from "react-router-dom";
+import { Adsense } from '@ctrl/react-adsense';
+import io from "socket.io-client";
+import {geraHash} from '../services/hashr';
 
 function Start() {
+    const [newRoom, setNewRoom] = useState('');
+    const [nick, setNick] = useState('');
+    const room = geraHash()
 
-    return(
+    function connectCasual() {
+        const socket = io('http://442c-179-34-117-22.ngrok.io');
+
+        socket.on("connect", () => {
+            // either with send()
+            socket.send("Hello!" + nick + room);
+          
+            // or with emit() and custom event names
+            socket.emit("Saudações", "Olá!", { "Sr": nick }, Uint8Array.from([1, 2, 3, 4]));
+          });
+        
+        socket.on("message", data => {
+            console.log(data);
+        });
+    }
+
+    function changeNick(event) {
+        event.preventDefault()
+        setNick(event.target.value)
+    }
+
+    return (
         <div id="S1" className="flex flex-row h-screen items-center justify-between w-screen bg-red-800">
             <div id="ad1" className="flex h-screen w-48 fixed left-0 items-center justify-center">
                 <Adsense
@@ -23,8 +50,8 @@ function Start() {
                     <div id="casual" className="flex flex-1 border-r-2 border-red-800 h-full items-center justify-center flex-col px-8">
                         <h3 className="text-3xl text-left fredoka text-white mb-8">JOGAR</h3>
                         <p id="disclaimer" className="text-md text-left fredoka text-white">Aqui é pra entrar e já se divertir com pessoas ao redor do mundo. Será que você é bom o bastante?</p>
-                        <input type="text" placeholder="Seu nick" id="nick" className="mt-5 py-2 outline-none w-60 text-center mx-auto rounded-md text-2xl fredoka cursor-pointer shadow-md shadow-opacity-100" />
-                        <Link to="/casual" id="btCasual" className="py-3 mt-8 border-4 border-green-600 border-opacity-60 px-6 text-2xl text-green-900 rounded-xl bg-green-400 fredoka shadow-md cursor-pointer">JOGAR</Link>
+                        <input onChange={event => changeNick(event)} autoComplete="off" type="text" placeholder="Seu nick" id="nick" className="mt-5 py-2 outline-none w-60 text-center mx-auto rounded-md text-2xl fredoka cursor-pointer shadow-md shadow-opacity-100" />
+                        <Link onClick={() => { connectCasual(nick) }} to="/casual" id="btCasual" className="py-3 mt-8 border-4 border-green-600 border-opacity-60 px-6 text-2xl text-green-900 rounded-xl bg-green-400 fredoka shadow-md cursor-pointer">JOGAR</Link>
                     </div>
                     <div id="lobby" className="flex flex-1 h-full w-full items-end justify-center items-center justify-center flex-col px-10">
                         <h3 className="text-3xl text-left fredoka text-white mb-8">SALA FECHADA</h3>
