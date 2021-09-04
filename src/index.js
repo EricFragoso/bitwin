@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 import io from "socket.io-client";
 
-const socket=io('http://92f4-179-34-115-136.ngrok.io');
+const socket=io('http://442c-179-34-117-22.ngrok.io');
 
 ReactDOM.render(
   (

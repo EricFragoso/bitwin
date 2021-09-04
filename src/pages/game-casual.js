@@ -4,6 +4,7 @@ import InputGame from '../components/input-game'
 /*import {GeraNumeros} from '../services/engine';*/
 
 function GameCasual() {
+
     const tentativas = [];
     const [inicial, setInicial] = useState(0);
     const [final, setFinal] = useState(0);

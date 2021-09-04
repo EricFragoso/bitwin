@@ -1,10 +1,7 @@
 import '../assets/fonts.css';
 import {Link} from "react-router-dom";
-/*import { io } from "socket.io-client";*/
 
 function Start() {
-
-    /*const socket = io('https://f78d-179-34-115-136.ngrok.io/');*/
 
     return(
         <div id="S1" className="flex flex-row h-screen items-center justify-between w-screen bg-red-800">
