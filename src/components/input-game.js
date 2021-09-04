@@ -1,6 +1,3 @@
-import { useState } from "react";
-
-
 export default function InputGame({setProps, value}){
     
     function setProps(){}
