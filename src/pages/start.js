@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, createContext } from 'react';
 import '../assets/fonts.css';
 import { Link, useHistory } from "react-router-dom";
 import { Adsense } from '@ctrl/react-adsense';
@@ -6,9 +6,10 @@ import io from "socket.io-client";
 import {geraHash} from '../services/hashr';
 
 function Start() {
-    const history = useHistory()
+    const history = useHistory();
     const [nick, setNick] = useState('');
-    const room = geraHash()
+    const room = geraHash();
+    const game = createContext({});
 
     function connectCasual() {
         const socket = io('http://442c-179-34-117-22.ngrok.io');
@@ -26,6 +27,7 @@ function Start() {
 
         socket.on("startGame", data => {
             console.log(data);
+            game = data
             history.push('/gameC');            
         });
     }
