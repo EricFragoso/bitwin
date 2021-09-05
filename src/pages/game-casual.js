@@ -24,19 +24,17 @@ function GameCasual() {
     function getRandom(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
-        let final = Math.floor(Math.random() * (max - min + 1)) + min;
+        let ultimo = Math.floor(Math.random() * (max - min + 1)) + min;
 
-        return final
+        return ultimo
     }
 
     function verificaNumero(numero) {
-        console.log(alvo);
-
         if (numero > alvo) {
-            setText('bitwin é menor que '+ numero);
+            setText('bitwin é menor que ' + numero);
         } else {
             if (numero < alvo) {
-                setText('bitwin é maior que '+ numero)
+                setText('bitwin é maior que ' + numero)
             } else {
                 setText('BITWIN')
             }
@@ -64,7 +62,7 @@ function GameCasual() {
                 <div className="flex justify-center mt-6">
                     <button id="btChute" onClick={() => { verificaNumero(chute) }} className="py-3 border-4 border-yellow-600 border-opacity-60 w-40 text-2xl text-yellow-900 rounded-xl bg-yellow-400 fredoka shadow-md cursor-pointer" >CHUTAR</button>
                 </div>
-                <p id="dica" className="text-4xl text-center text-white mb-4 fredoka"></p>
+                <p id="dica" className="text-4xl text-center text-white mb-4 fredoka">{alvo}</p>
                 {text && <p id="lista" className="text-4xl text-center text-white mb-4 fredoka">{text}</p>}
             </div>
 
