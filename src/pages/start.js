@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import '../assets/fonts.css';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Adsense } from '@ctrl/react-adsense';
 import io from "socket.io-client";
 import {geraHash} from '../services/hashr';
 
 function Start() {
+    const history = useHistory()
     const [nick, setNick] = useState('');
     const room = geraHash()
 
@@ -20,6 +21,10 @@ function Start() {
         
         socket.on("connected", data => {
             console.log(data);
+        });
+
+        socket.on("startGame", data => {
+            history.push('/gameC');
         });
     }
 
