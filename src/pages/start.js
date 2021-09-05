@@ -6,7 +6,6 @@ import io from "socket.io-client";
 import {geraHash} from '../services/hashr';
 
 function Start() {
-    const [newRoom, setNewRoom] = useState('');
     const [nick, setNick] = useState('');
     const room = geraHash()
 
@@ -14,14 +13,12 @@ function Start() {
         const socket = io('http://442c-179-34-117-22.ngrok.io');
 
         socket.on("connect", () => {
-            // either with send()
-            socket.send("Hello!" + nick + room);
-          
+            
             // or with emit() and custom event names
-            socket.emit("Saudações", "Olá!", { "Sr": nick }, Uint8Array.from([1, 2, 3, 4]));
+            socket.emit("loginCasual", {nick, room}, Uint8Array.from([1, 2, 3, 4]));
           });
         
-        socket.on("message", data => {
+        socket.on("connected", data => {
             console.log(data);
         });
     }
