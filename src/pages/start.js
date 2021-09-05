@@ -21,10 +21,12 @@ function Start() {
         
         socket.on("connected", data => {
             console.log(data);
+            //history.push('/gameC');
         });
 
         socket.on("startGame", data => {
-            history.push('/gameC');
+            console.log(data);
+            
         });
     }
 
