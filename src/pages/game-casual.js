@@ -1,5 +1,6 @@
 import React, { useEffect, useState} from "react";
 import { Adsense } from '@ctrl/react-adsense';
+import {useLocation} from 'react-router-dom';
 
 
 
@@ -14,26 +15,14 @@ function GameCasual() {
     const [alvo, setAlvo] = useState(0);
     const [text, setText] = useState('');
     const [chute, setChute] = useState(0);
-    const [config, setConfig] = useState({
-        minInicial: 1,
-        maxInicial: 13,
-        minFinal: 70,
-        maxFinal: 100
-    });
+    const location = useLocation();
 
     useEffect(() => {
-        setInicial(getRandom(config.minInicial, config.maxInicial));
-        setFinal(getRandom(config.minFinal, config.maxFinal));
-        setAlvo(getRandom(inicial, final));
+        setInicial(location.state.inicial);
+        setFinal(location.state.final);
+        setAlvo(location.state.alvo);
     }, []);
 
-    function getRandom(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        let ultimo = Math.floor(Math.random() * (max - min + 1)) + min;
-
-        return ultimo
-    }
 
     function verificaNumero(numero) {
         if (numero > alvo) {

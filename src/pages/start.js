@@ -1,9 +1,14 @@
-import { useState, createContext } from 'react';
+import { useState} from 'react';
 import '../assets/fonts.css';
 import { Link, useHistory } from "react-router-dom";
 import { Adsense } from '@ctrl/react-adsense';
 import io from "socket.io-client";
+<<<<<<< HEAD
 import { geraHash } from '../services/hashr';
+=======
+import {geraHash} from '../services/hashr';
+import GameCasual from './game-casual';
+>>>>>>> 7ebf6e1c80447e09018648f9c4cf76802ef6710e
 
 function Start() {
     const history = useHistory();
@@ -23,8 +28,21 @@ function Start() {
         });
 
         socket.on("startGame", data => {
+<<<<<<< HEAD
             console.log(data);
             history.push('/gameC');
+=======
+           history.push({
+               pathname: '/gameC',
+               state: { 
+                   inicial: data.numeros.inicial,
+                   final: data.numeros.final,
+                   alvo: data.numeros.alvo,
+                },
+           });
+           console.log( data.numeros.inicial);
+           GameCasual.setInicial= data.numeros.inicial;                  
+>>>>>>> 7ebf6e1c80447e09018648f9c4cf76802ef6710e
         });
     }
 
