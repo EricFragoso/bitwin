@@ -26,12 +26,15 @@ function Start() {
         });
 
         socket.on("startGame", data => {
+            console.log(data);
            history.push({
                pathname: '/gameC',
                state: { 
                    inicial: data.numeros.inicial,
                    final: data.numeros.final,
                    alvo: data.numeros.alvo,
+                   p1: data.users[0],
+                   p2: data.users[1]
                 },
            });
            console.log( data.numeros.inicial);

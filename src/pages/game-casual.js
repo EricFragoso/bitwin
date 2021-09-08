@@ -4,10 +4,8 @@ import {useLocation} from 'react-router-dom';
 
 
 function GameCasual() {
-    const [players, setPlayers] = useState({
-        p1: 'Player 1',
-        p2: 'Player 2',
-    });
+    const [p1, setP1] = useState('');
+    const [p2, setP2] = useState('');
     const [inicial, setInicial] = useState(0);
     const [final, setFinal] = useState(0);
     const [alvo, setAlvo] = useState(0);
@@ -19,6 +17,8 @@ function GameCasual() {
         setInicial(location.state.inicial);
         setFinal(location.state.final);
         setAlvo(location.state.alvo);
+        setP1(location.state.p1);
+        setP2(location.state.p2);
     }, []);
 
 
@@ -50,7 +50,7 @@ function GameCasual() {
                 />
             </div>
             <div id="announcer" className="flex flex-col text-center w-3/6 mx-auto">
-                <p className="text-3xl text-center text-white mb-8 fredoka mb-10">Jogo entre {players.p1} VS {players.p2}</p>
+                <p className="text-3xl text-center text-white mb-8 fredoka mb-10">Jogo entre {p1} VS {p2}</p>
             
                 <div id="game" className="flex flex-col text-center w-full mx-auto border-4 border-green-500 bg-green-700 shadow-xl px-10 py-10 rounded-3xl">
                     <p className="text-5xl text-center text-white mb-8 fredoka">O número escondido está<br></br>entre {inicial} e {final}</p>
