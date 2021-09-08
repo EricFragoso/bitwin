@@ -1,18 +1,18 @@
-import { useState, createContext } from 'react';
+import { useState} from 'react';
 import '../assets/fonts.css';
 import { Link, useHistory } from "react-router-dom";
 import { Adsense } from '@ctrl/react-adsense';
 import io from "socket.io-client";
 import {geraHash} from '../services/hashr';
+import GameCasual from './game-casual';
 
 function Start() {
     const history = useHistory();
     const [nick, setNick] = useState('');
     const room = geraHash();
-    const game = createContext({});
 
     function connectCasual() {
-        const socket = io('http://442c-179-34-117-22.ngrok.io');
+        const socket = io('http://dd72-179-34-117-22.ngrok.io');
 
         socket.on("connect", () => {
             
@@ -26,9 +26,16 @@ function Start() {
         });
 
         socket.on("startGame", data => {
-            console.log(data);
-            game = data
-            history.push('/gameC');            
+           history.push({
+               pathname: '/gameC',
+               state: { 
+                   inicial: data.numeros.inicial,
+                   final: data.numeros.final,
+                   alvo: data.numeros.alvo,
+                },
+           });
+           console.log( data.numeros.inicial);
+           GameCasual.setInicial= data.numeros.inicial;                  
         });
     }
 
