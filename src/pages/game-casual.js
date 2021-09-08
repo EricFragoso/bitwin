@@ -3,6 +3,7 @@ import { Adsense } from '@ctrl/react-adsense';
 import {useLocation} from 'react-router-dom';
 
 
+
 function GameCasual() {
     const [p1, setP1] = useState('');
     const [p2, setP2] = useState('');
