@@ -12,14 +12,12 @@ function Start() {
     const room = geraHash();
 
     function connectCasual() {
-        const socket = io('http://dd72-179-34-117-22.ngrok.io');
+        const socket = io('http://ac1e-179-34-117-22.ngrok.io');
 
         socket.on("connect", () => {
-            
-            // or with emit() and custom event names
-            socket.emit("loginCasual", {nick, room}, Uint8Array.from([1, 2, 3, 4]));
-          });
-        
+            socket.emit("loginCasual", { nick, room }, Uint8Array.from([1, 2, 3, 4]));
+        });
+
         socket.on("connected", data => {
             console.log(data);
             
