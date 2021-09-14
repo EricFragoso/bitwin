@@ -1,6 +1,7 @@
 import React, { useEffect, useState} from "react";
 import { Adsense } from '@ctrl/react-adsense';
 import {useLocation} from 'react-router-dom';
+import Socket from '../services/socket.js';
 
 
 
@@ -9,7 +10,7 @@ function GameCasual() {
     const [p2, setP2] = useState('');
     const [inicial, setInicial] = useState(0);
     const [final, setFinal] = useState(0);
-    const [alvo, setAlvo] = useState(0);
+    const [room, setRoom] = useState('');
     const [text, setText] = useState('');
     const [chute, setChute] = useState(0);
     const location = useLocation();
@@ -17,23 +18,32 @@ function GameCasual() {
     useEffect(() => {
         setInicial(location.state.inicial);
         setFinal(location.state.final);
-        setAlvo(location.state.alvo);
+        setRoom(location.state.sala);
         setP1(location.state.p1);
         setP2(location.state.p2);
     }, []);
 
 
-    function verificaNumero(numero) {
-        if (numero > alvo) {
-            setText('bitwin é menor que ' + numero);
-        } else {
-            if (numero < alvo) {
-                setText('bitwin é maior que ' + numero)
-            } else {
-                setText('BITWIN')
-            }
-        }
+    function verificaNumero(numero){
+        Socket.emit("verifyAttempt", {numero, room}, Uint8Array.from([1, 2, 3, 4]));        
     }
+
+    Socket.on("tentouMenor", data => {
+        console.log(data)
+        setText(data);
+    });
+
+    Socket.on("tentouMaior", data => {
+        setText(data);
+        console.log(data)
+    });
+
+    Socket.on("tentouCerto", data => {
+        setText(data);
+        console.log(data)
+    });
+
+
 
     function testando(event) {
         event.preventDefault()
@@ -59,7 +69,7 @@ function GameCasual() {
                     <div className="flex justify-center mt-6">
                         <button id="btChute" onClick={() => { verificaNumero(chute) }} className="py-3 border-4 border-yellow-600 border-opacity-60 w-40 text-2xl text-yellow-900 rounded-xl bg-yellow-400 fredoka shadow-md cursor-pointer" >CHUTAR</button>
                     </div>
-                    <p id="dica" className="text-4xl text-center text-white mb-4 fredoka">{alvo}</p>
+                    <p id="dica" className="text-4xl text-center text-white mb-4 fredoka">{room}</p>
                     {text && <p id="lista" className="text-4xl text-center text-white mb-4 fredoka">{text}</p>}
                 </div>
             </div>
