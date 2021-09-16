@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, withRouter } from 'react-router
 import Start from './pages/start';
 import Casual from './pages/casual'
 import GameCasual from './pages/game-casual'
+import GameOver from './pages/game-over'
 import GameLobby from './pages/game-lobby'
 import Lobby from './pages/lobby'
 import LobbyC from './pages/lb-creator'
@@ -31,6 +32,9 @@ const App = () =>{
           </Route>
           <Route exact path="/gameC">
             <GameCasual />
+          </Route>
+          <Route exact path="/gameOver">
+            <GameOver />
           </Route>
           <Route exact path="/gameL">
             <GameLobby />
