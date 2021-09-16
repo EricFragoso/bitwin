@@ -2,10 +2,11 @@ import React, { useEffect, useState} from "react";
 //import { Adsense } from '@ctrl/react-adsense';
 import {useLocation} from 'react-router-dom';
 import Socket from '../services/socket.js';
+import {Link} from 'react-router-dom'
 
 
 
-function GameCasual() {
+function GameOver() {
     const [p1, setP1] = useState('');
     const [p2, setP2] = useState('');
     const [inicial, setInicial] = useState(0);
@@ -16,13 +17,13 @@ function GameCasual() {
     const [chute, setChute] = useState(0);
     const location = useLocation();
 
-    useEffect(() => {
+    /*useEffect(() => {
         setInicial(location.state.inicial);
         setFinal(location.state.final);
         setRoom(location.state.sala);
         setP1(location.state.p1);
         setP2(location.state.p2);
-    }, []);
+    }, []);*/
 
 
     function verificaNumero(numero){
@@ -64,18 +65,16 @@ function GameCasual() {
                 />
             </div> */}
             <div id="announcer" className="flex flex-col text-center w-3/6 mx-auto">
-                <p className="text-3xl text-center text-white fredoka">{p1} VS {p2}</p>
-                <p className="text-xl text-center text-white mb-8 fredoka mb-10">Sala {room}</p>
             
                 <div id="game" className="flex flex-col text-center w-full mx-auto border-4 border-green-500 bg-green-700 shadow-xl px-10 py-10 rounded-3xl">
-                    <p className="text-5xl text-center text-white mb-8 fredoka"> {inicial} - <span className="text-5xl text-center text-white mb-8 fredoka">X</span> - {final}</p>
-                    <input type="text" id="chute" onChange={event => testando(event)} autoComplete="off" className="outline-none w-40 h-16 text-center mx-auto rounded-md text-2xl fredoka mb-8 cursor-pointer ring-3 ring-yellow-400" />
-                    <div className="flex justify-center mt-6">
-                        <button id="btChute" onClick={() => { verificaNumero(chute) }} className="py-3 border-4 border-yellow-600 border-opacity-60 w-40 text-2xl text-yellow-900 rounded-xl bg-yellow-400 fredoka shadow-md cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-1 hover:bg-yellow-300" >CHUTAR</button>
+                    <p className="text-5xl text-center text-white fredoka mb-10">Você é campeão</p>
+                    <div>
+                        <p className="text-2xl text-left text-white mb-8 fredoka">Chutes do player 1 - <span className="text-4xl text-center text-green-900 mb-8 fredoka">16, 29, 78, 65,</span><span className="text-4xl text-center text-green-200 mb-8 fredoka">42</span></p>
+                        <p className="text-2xl text-left text-white mb-8 fredoka">Chutes do player 2 - <span className="text-4xl text-center text-green-900 mb-8 fredoka">7, 91, 13, 44, 29, 39,</span><span className="text-4xl text-center text-green-200 mb-8 fredoka">42</span></p>
                     </div>
-                    <p id="dica" className="text-4xl text-center text-white mb-4 fredoka"></p>
-                    {text && <p id="lista" className="text-2xl text-center text-white mb-4 fredoka transition duration-500 ease-in-out transform opacity-100">{text}</p>}
-                    {text && <p id="qtChutes" className="text-2xl text-center text-white mb-4 fredoka transition duration-500 ease-in-out transform opacity-100">{qtChutes}</p>}
+                    <div className="flex justify-center mt-6">
+                        <Link id="btChute" to="/" className="py-3 border-4 border-yellow-600 border-opacity-60 w-72 text-2xl text-yellow-900 rounded-xl bg-yellow-400 fredoka shadow-md cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-1 hover:bg-yellow-300" >JOGAR NOVAMENTE</Link>
+                    </div>
                 </div>
             </div>
 
@@ -93,4 +92,4 @@ function GameCasual() {
     );
 }
 
-export default GameCasual;
+export default GameOver;
