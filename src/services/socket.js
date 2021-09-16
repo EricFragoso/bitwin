@@ -1,6 +1,6 @@
 import {io} from "socket.io-client";
 
-const Socket=io('http://ac1e-179-34-117-22.ngrok.io');
+const Socket=io('http://be77-179-34-117-22.ngrok.io');
 
 
 Socket.on("connected", data => {
