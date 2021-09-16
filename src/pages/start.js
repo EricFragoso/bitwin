@@ -1,15 +1,8 @@
 import { useState} from 'react';
 import '../assets/fonts.css';
-<<<<<<< HEAD
-import { Link, useHistory } from "react-router-dom";
-//import { Adsense } from '@ctrl/react-adsense';
-import io from "socket.io-client";
-import {geraHash} from '../services/hashr';
-=======
 import { Link, useHistory} from "react-router-dom";
-import { Adsense } from '@ctrl/react-adsense';
+/*import { Adsense } from '@ctrl/react-adsense';*/
 import Socket from '../services/socket.js';
->>>>>>> a01b3644d0590acbc36048c0edc78cc564000abd
 import GameCasual from './game-casual';
 import {geraHash} from '../services/hashr';
 
