@@ -39,7 +39,7 @@ function Start() {
     }
 
     return (
-        <div id="S1" className="flex flex-row h-screen items-center justify-between w-screen bg-red-800">
+        <div id="S1" className="flex flex-row h-screen items-center justify-between w-screen bg-bg">
             {/*<div id="ad1" className="flex h-screen w-48 fixed left-0 items-center justify-center">
                  <Adsense
                     client="ca-pub-0701250308092687"
@@ -50,18 +50,18 @@ function Start() {
             </div>*/}
             <div id="content" className="flex flex-col items-center justify-center min-w-full">
                 <header className="flex flex-col items-center justify-center w-96">
-                    <h1 className="text-6xl text-center text-white fredoka">bitwin</h1>
-                    <p className="text-xl text-center fredoka text-black mb-5">Vamos ver se você é bom de palpite?</p>
+                    <h1 className="text-8xl text-center text-laranja fredoka">bitwin</h1>
+                    <p className="text-xl text-center fredoka text-white mb-5">Você é bom de palpite?</p>
                 </header>
-                <div className="flex flex-row items-center justify-around bg-red-700 rounded-3xl px-10 py-8 h-96 py-14">
-                    <div id="casual" className="flex border-r-2 border-red-800 h-full items-center justify-center flex-col px-8 w-96">
-                        <h3 className="text-3xl text-left fredoka text-white mb-8">JOGAR</h3>
+                <div className="flex flex-row drop-shadow-2xl items-center justify-around bg-roxo rounded-3xl border-4 border-roxo-claro px-10 py-8 h-96 py-14">
+                    <div id="casual" className="flex border-r-2 border-roxo-claro h-full items-center justify-center flex-col px-8 w-96">
+                        <h3 className="text-3xl text-left fredoka text-laranja mb-8">JOGAR</h3>
                         <p id="disclaimer" className="text-md text-left fredoka text-white">Aqui é pra entrar e já se divertir com pessoas ao redor do mundo. Será que você é bom o bastante?</p>
                         <input onChange={event => changeNick(event)} autoComplete="off" type="text" placeholder="Seu nick" id="nick" className="mt-5 py-2 outline-none w-60 text-center mx-auto rounded-md text-2xl fredoka cursor-pointer shadow-md shadow-opacity-100" />
                         <Link onClick={() => { ConnectCasual(nick) }} to="/casual" id="btCasual" className="py-3 mt-8 border-4 border-green-600 border-opacity-60 px-6 text-2xl text-green-900 rounded-xl bg-green-400 fredoka shadow-md cursor-pointer">JOGAR</Link>
                     </div>
                     <div id="lobby" className="flex h-full items-end justify-center items-center justify-center flex-col px-10  w-96">
-                        <h3 className="text-3xl text-left fredoka text-white mb-8">SALA FECHADA</h3>
+                        <h3 className="text-3xl text-left fredoka text-laranja mb-8">SALA FECHADA</h3>
                         <p id="disclaimer" className="text-md text-left fredoka text-white mb-8">Crie um lugarzinho para desafiar aquele amigo que se acha sortudo. Mande o código para ele e divirtam-se!</p>
                         <Link to="/lobby" id="btLobby" className="py-3 border-4 border-yellow-600 border-opacity-60 ml-5 px-6 text-2xl text-yellow-900 rounded-xl bg-yellow-400 fredoka shadow-md cursor-pointer">CRIAR LOBBY</Link>
                     </div>
