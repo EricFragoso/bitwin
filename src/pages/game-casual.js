@@ -20,16 +20,16 @@ function GameCasual() {
     const location = useLocation();
 
     useEffect(() => {
-        setInicial(5);
-        setFinal(90);
-        setRoom('F5RSS');
-        setP1('Julio');
-        setP2('Alexandrinho');
-        // setInicial(location.state.inicial);
-        // setFinal(location.state.final);
-        // setRoom(location.state.sala);
-        // setP1(location.state.p1);
-        // setP2(location.state.p2);
+        // setInicial(5);
+        // setFinal(90);
+        // setRoom('F5RSS');
+        // setP1('Julio');
+        // setP2('Alexandrinho');
+        setInicial(location.state.inicial);
+        setFinal(location.state.final);
+        setRoom(location.state.sala);
+        setP1(location.state.p1);
+        setP2(location.state.p2);
     }, []);
 
 
