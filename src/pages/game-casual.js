@@ -105,7 +105,7 @@ function GameCasual() {
                             {textmenor && <p className="text-xl text-center text-laranja fredoka mt-4 uppercase">{textmenor}</p>}
                         </div>
                         <div id="chuteForm" className="flex flex-col h-full items-center justify-center px-8 w-96 mb-10">
-                            <input type="text" id="chute" onChange={event => testando(event)} autoComplete="off" className="outline-none w-40 h-16 text-center text-white mx-auto rounded-xl text-4xl fredoka mb-8 cursor-pointer ring-3 ring-yellow-400 bg-roxo-escuro" />
+                            {textcerto ? <input type="text" id="chute" onChange={event => testando(event)} autoComplete="off" className="outline-none w-40 h-16 text-center text-white mx-auto rounded-xl text-4xl fredoka mb-8 cursor-pointer ring-3 ring-yellow-400 bg-roxo-escuro invisible" /> : <input type="text" id="chute" onChange={event => testando(event)} autoComplete="off" className="outline-none w-40 h-16 text-center text-white mx-auto rounded-xl text-4xl fredoka mb-8 cursor-pointer ring-3 ring-yellow-400 bg-roxo-escuro" /> }
                             {textcerto ? <p className="text-xl text-center text-laranja fredoka mt-4 uppercase">{textcerto}</p> : <button id="btChute" onClick={() => { verificaNumero(chute) }} className="py-3 border-4 border-laranja-claro border-opacity-60 w-40 text-3xl text-roxo rounded-xl bg-laranja fredoka shadow-md cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-1 hover:bg-yellow-300" >CHUTAR</button>}
                         </div>
                         <div id="infoChuteAlto" className="flex flex-col h-full items-center justify-center px-8 w-64">
