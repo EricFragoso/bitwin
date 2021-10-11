@@ -17,6 +17,7 @@ function GameCasual() {
     const [textmenor, setTextmenor] = useState('');
     const [textmaior, setTextmaior] = useState('');
     const [textcerto, setTextcerto] = useState('');
+    const [numerocerto, setNumerocerto] = useState('');
     const [qtChutes, setQtChutes] = useState(0);
     const [chute, setChute] = useState(0);
     const location = useLocation();
@@ -50,6 +51,7 @@ function GameCasual() {
 
     Socket.on("tentouCerto", data => {
         setTextcerto(data);
+        setNumerocerto(chute);
     });
 
 
@@ -93,7 +95,8 @@ function GameCasual() {
                 <div id="game" className="flex flex-col drop-shadow-2xl items-center bg-roxo rounded-3xl border-4 border-roxo-claro px-10">
                     <div className="flex flex-row items-center mb-5">
                         <p className="text-7xl text-center text-verde mr-8 fredoka"> 0{inicial}...</p>
-                        <p className="text-9xl text-center text-laranja fredoka">?</p>
+                        
+                        {textcerto ? <p className="text-9xl text-center text-laranja fredoka">{numerocerto}</p> : <p className="text-9xl text-center text-laranja fredoka">?</p>}
                         <p className="text-7xl text-center text-vermelho ml-8  fredoka">...{final}</p>
                     </div>
                     <div className="flex flex-row items-start">
@@ -103,7 +106,7 @@ function GameCasual() {
                         </div>
                         <div id="chuteForm" className="flex flex-col h-full items-center justify-center px-8 w-96 mb-10">
                             <input type="text" id="chute" onChange={event => testando(event)} autoComplete="off" className="outline-none w-40 h-16 text-center text-white mx-auto rounded-xl text-4xl fredoka mb-8 cursor-pointer ring-3 ring-yellow-400 bg-roxo-escuro" />
-                            <button id="btChute" onClick={() => { verificaNumero(chute) }} className="py-3 border-4 border-laranja-claro border-opacity-60 w-40 text-3xl text-roxo rounded-xl bg-laranja fredoka shadow-md cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-1 hover:bg-yellow-300" >CHUTAR</button>
+                            {textcerto ? <p className="text-xl text-center text-laranja fredoka mt-4 uppercase">{textcerto}</p> : <button id="btChute" onClick={() => { verificaNumero(chute) }} className="py-3 border-4 border-laranja-claro border-opacity-60 w-40 text-3xl text-roxo rounded-xl bg-laranja fredoka shadow-md cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-1 hover:bg-yellow-300" >CHUTAR</button>}
                         </div>
                         <div id="infoChuteAlto" className="flex flex-col h-full items-center justify-center px-8 w-64">
                             <img src={arrowDown} width="97" />
