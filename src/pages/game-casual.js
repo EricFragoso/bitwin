@@ -14,7 +14,9 @@ function GameCasual() {
     const [inicial, setInicial] = useState(0);
     const [final, setFinal] = useState(0);
     const [room, setRoom] = useState('');
-    const [text, setText] = useState('');
+    const [textmenor, setTextmenor] = useState('');
+    const [textmaior, setTextmaior] = useState('');
+    const [textcerto, setTextcerto] = useState('');
     const [qtChutes, setQtChutes] = useState(0);
     const [chute, setChute] = useState(0);
     const location = useLocation();
@@ -39,18 +41,15 @@ function GameCasual() {
     }
 
     Socket.on("tentouMenor", data => {
-        console.log(data)
-        setText(data);
+        setTextmenor(data);
     });
 
     Socket.on("tentouMaior", data => {
-        setText(data);
-        console.log(data)
+        setTextmaior(data);
     });
 
     Socket.on("tentouCerto", data => {
-        setText(data);
-        console.log(data)
+        setTextcerto(data);
     });
 
 
@@ -100,19 +99,19 @@ function GameCasual() {
                     <div className="flex flex-row items-start">
                         <div id="infoChuteBaixo" className="flex flex-col h-full items-center justify-center px-8 w-64">
                             <img src={arrowUp} width="97" />
-                            <p className="text-xl text-center text-laranja fredoka mt-4 uppercase">Pode subir esse chute ai...</p>
+                            {textmenor && <p className="text-xl text-center text-laranja fredoka mt-4 uppercase">{textmenor}</p>}
                         </div>
-                        <div id="chuteForm" className="flex flex-col h-full items-center justify-center  px-8 w-96">
+                        <div id="chuteForm" className="flex flex-col h-full items-center justify-center px-8 w-96 mb-10">
                             <input type="text" id="chute" onChange={event => testando(event)} autoComplete="off" className="outline-none w-40 h-16 text-center text-white mx-auto rounded-xl text-4xl fredoka mb-8 cursor-pointer ring-3 ring-yellow-400 bg-roxo-escuro" />
                             <button id="btChute" onClick={() => { verificaNumero(chute) }} className="py-3 border-4 border-laranja-claro border-opacity-60 w-40 text-3xl text-roxo rounded-xl bg-laranja fredoka shadow-md cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-1 hover:bg-yellow-300" >CHUTAR</button>
                         </div>
-                        <div id="infoChuteAlto" className="flex flex-col h-full items-center justify-center  px-8 w-64">
+                        <div id="infoChuteAlto" className="flex flex-col h-full items-center justify-center px-8 w-64">
                             <img src={arrowDown} width="97" />
-                            <p className="text-xl text-center text-laranja fredoka mt-4 uppercase">Teu chute foi alto feito o everest...</p>
+                            {textmaior && <p className="text-xl text-center text-laranja fredoka mt-4 uppercase">{textmaior}</p>}
                         </div>
                     </div>
-                    <div id="stats" className="py-3 px-3 my-2 rounded-2xl bg-roxo-claro">
-                        <p className="uppercase fredoka text-white uppercase" >Você já palpitou <span className="uppercase bg-roxo-medio fredoka text-white uppercase px-2 py-2 rounded-md">4</span> vezes</p>
+                    <div id="stats" className="py-3 px-3 mb-6 rounded-2xl bg-roxo-claro">
+                        <p className="uppercase fredoka text-white uppercase" >Você já palpitou <span className="uppercase bg-roxo-medio fredoka text-white uppercase px-2 py-2 rounded-md">{qtChutes}</span> vezes</p>
                     </div>
 
                     {/* <input type="text" id="chute" onChange={event => testando(event)} autoComplete="off" className="outline-none w-40 h-16 text-center mx-auto rounded-md text-2xl fredoka mb-8 cursor-pointer ring-3 ring-yellow-400" />
