@@ -86,7 +86,7 @@ function GameCasual() {
                     <div className="text-6xl text-center text-laranja-claro fredoka">
                         <p>Vs</p>
                     </div>
-                    <div id="idp1" className="flex flex-row items-center w-96 justify-end">
+                    <div id="idp2" className="flex flex-row items-center w-96 justify-end">
                         <p className="text-2xl text-center text-laranja fredoka uppercase mr-4">{p2}</p>
                         <img src={user} width="47" height="47" />
                     </div>
