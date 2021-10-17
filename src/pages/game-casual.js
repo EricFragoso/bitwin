@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from "react";
 //import { Adsense } from '@ctrl/react-adsense';
-import {useLocation} from 'react-router-dom';
+import {useLocation, useHistory} from 'react-router-dom';
 import Socket from '../services/socket.js';
 import user from '../imgs/user.png';
 import arrowUp from '../imgs/seta-up.png';
@@ -21,6 +21,7 @@ function GameCasual() {
     const [qtChutes, setQtChutes] = useState(0);
     const [chute, setChute] = useState(0);
     const location = useLocation();
+    const history = useHistory();
 
     useEffect(() => {
         // setInicial(5);
@@ -54,8 +55,9 @@ function GameCasual() {
         setNumerocerto(chute);
     });
     Socket.on("terminou", data => {
-        setTextcerto(data);
-        setNumerocerto(chute);
+        history.push({
+            pathname: '/gameOver',
+        })
     });
 
 
@@ -104,7 +106,7 @@ function GameCasual() {
                         <p className="text-7xl text-center text-vermelho ml-8  fredoka">...{final}</p>
                     </div>
                     <div className="flex flex-row items-start">
-                        <div id="infoChuteBaixo" className="flex flex-col h-full items-center justify-center px-8 w-64">
+                        <div id="infoChuteBaixo" className="flex flex-col h-full items-center justify-center px-8 w-64 animate-bounce">
                             <img src={arrowUp} width="97" />
                             {textmenor && <p className="text-xl text-center text-laranja fredoka mt-4 uppercase">{textmenor}</p>}
                         </div>
@@ -112,7 +114,7 @@ function GameCasual() {
                             {textcerto ? <input type="text" id="chute" onChange={event => testando(event)} autoComplete="off" className="outline-none w-40 h-16 text-center text-white mx-auto rounded-xl text-4xl fredoka mb-8 cursor-pointer ring-3 ring-yellow-400 bg-roxo-escuro invisible" /> : <input type="text" id="chute" onChange={event => testando(event)} autoComplete="off" className="outline-none w-40 h-16 text-center text-white mx-auto rounded-xl text-4xl fredoka mb-8 cursor-pointer ring-3 ring-yellow-400 bg-roxo-escuro" /> }
                             {textcerto ? <p className="text-xl text-center text-laranja fredoka mt-4 uppercase">{textcerto}</p> : <button id="btChute" onClick={() => { verificaNumero(chute) }} className="py-3 border-4 border-laranja-claro border-opacity-60 w-40 text-3xl text-roxo rounded-xl bg-laranja fredoka shadow-md cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-1 hover:bg-yellow-300" >CHUTAR</button>}
                         </div>
-                        <div id="infoChuteAlto" className="flex flex-col h-full items-center justify-center px-8 w-64">
+                        <div id="infoChuteAlto" className="flex flex-col h-full items-center justify-center px-8 w-64 animate-bounce">
                             <img src={arrowDown} width="97"/>
                             {textmaior && <p className="text-xl text-center text-laranja fredoka mt-4 uppercase">{textmaior}</p>}
                         </div>

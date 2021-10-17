@@ -9,7 +9,16 @@ function GameOver() {
     const [p1, setP1] = useState('');
     const [p2, setP2] = useState('');
     const [room, setRoom] = useState('');
-    const [qtChutes, setQtChutes] = useState(0);
+    const [qtChutesp1, setQtChutesp1] = useState(0);
+    const [qtChutesp2, setQtChutesp2] = useState(0);
+    const [chutesp1, setChutesp1] = useState(0);
+    const [chutesp2, setChutesp2] = useState(0);
+    const [statusGamep1, setStatusGamep1] = useState(0);
+    const [statusGamep2, setStatusGamep2] = useState(0);
+    const [tempop1, setTempop1] = useState(0);
+    const [tempop2, setTempop2] = useState(0);
+
+
 
    useEffect(() => {
          /*setInicial(location.state.inicial);
@@ -19,7 +28,6 @@ function GameOver() {
 
     function verificaNumero(numero) {
         Socket.emit("verifyAttempt", { numero, room }, Uint8Array.from([1, 2, 3, 4]));
-        setQtChutes(qtChutes + 1);
     }
 
     return (
@@ -44,21 +52,21 @@ function GameOver() {
                 <div id="game" className="flex py-10 flex-col drop-shadow-2xl items-center bg-roxo rounded-3xl border-4 border-roxo-claro px-10">
                     <div className="flex flex-row mb-8">
                         <div className="flex flex-col text-center px-10 w-96">
-                            <p className="text-4xl text-center text-verde fredoka">Ganhou</p>
+                            <p className="text-4xl text-center text-verde fredoka">{statusGamep1}</p>
                             <p className="text-2xl text-center text-white fredoka mb-10">{p1}</p>
-                            <span className="text-5xl text-center text-laranja fredoka">8</span>
+                            <span className="text-5xl text-center text-laranja fredoka">{qtChutesp1}</span>
                             <p className="text-2xl text-center text-white mb-1 fredoka">Chutes</p>
-                            <p className="text-md text-center text-roxo-claro mb-5 fredoka">19, 79, 28, 45, 36, 42</p>
-                            <span className="text-5xl text-center text-laranja fredoka">1:22</span>
+                            <p className="text-md text-center text-roxo-claro mb-5 fredoka">{chutesp1}</p>
+                            <span className="text-5xl text-center text-laranja fredoka">{tempop1}</span>
                             <p className="text-2xl text-center text-white mb-1 fredoka">Tempo</p>
                         </div>
                         <div className="flex flex-col text-center px-10 w-96">
-                            <p className="text-4xl text-center text-vermelho fredoka">Quer revanche</p>
+                            <p className="text-4xl text-center text-vermelho fredoka">{statusGamep2}</p>
                             <p className="text-2xl text-center text-white fredoka mb-10">{p2}</p>
-                            <span className="text-5xl text-center text-laranja fredoka">9</span>
+                            <span className="text-5xl text-center text-laranja fredoka">{qtChutesp1}</span>
                             <p className="text-2xl text-center text-white mb-1 fredoka">Chutes</p>
-                            <p className="text-md text-center text-roxo-claro mb-5 fredoka">19, 79, 28, 45, 36, 42</p>
-                            <span className="text-5xl text-center text-laranja fredoka">1:13</span>
+                            <p className="text-md text-center text-roxo-claro mb-5 fredoka">{chutesp1}</p>
+                            <span className="text-5xl text-center text-laranja fredoka">{tempop1}</span>
                             <p className="text-2xl text-center text-white mb-1 fredoka">Tempo</p>
                         </div>
                     </div>
