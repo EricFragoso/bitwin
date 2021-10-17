@@ -14,12 +14,9 @@ function Start() {
     function ConnectCasual(nick){
         Socket.emit("loginCasual", { nick, room }, Uint8Array.from([1, 2, 3, 4]));
     }
-
-    
-
     Socket.on("startGame", data => {
         console.log(data);
-       history.push({
+        history.push({
            pathname: '/gameC',
            state: { 
                inicial: data.numeros.inicial,

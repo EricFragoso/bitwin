@@ -9,9 +9,7 @@ Socket.on("connected", data => {
 
 Socket.on("startGame", data => {
     console.log(data);
-   /* 
-   */
-   console.log(data.numeros.inicial);
+    console.log(data.numeros.inicial);
    //GameCasual.setInicial= data.numeros.inicial;                  
 });
 
