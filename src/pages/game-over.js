@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 //import { Adsense } from '@ctrl/react-adsense';
-import { useLocation } from 'react-router-dom';
 import Socket from '../services/socket.js';
 import { Link } from 'react-router-dom'
 
@@ -9,49 +8,18 @@ import { Link } from 'react-router-dom'
 function GameOver() {
     const [p1, setP1] = useState('');
     const [p2, setP2] = useState('');
-    const [inicial, setInicial] = useState(0);
-    const [final, setFinal] = useState(0);
     const [room, setRoom] = useState('');
-    const [text, setText] = useState('');
     const [qtChutes, setQtChutes] = useState(0);
-    const [chute, setChute] = useState(0);
-    const location = useLocation();
 
-    /*useEffect(() => {
-        setInicial(location.state.inicial);
-        setFinal(location.state.final);
-        setRoom(location.state.sala);
-        setP1(location.state.p1);
-        setP2(location.state.p2);
-    }, []);*/
+   useEffect(() => {
+         /*setInicial(location.state.inicial);
+        setFinal(location.state.final);*/
+    }, []);
 
 
     function verificaNumero(numero) {
         Socket.emit("verifyAttempt", { numero, room }, Uint8Array.from([1, 2, 3, 4]));
         setQtChutes(qtChutes + 1);
-    }
-
-    Socket.on("tentouMenor", data => {
-        console.log(data)
-        setText(data);
-    });
-
-    Socket.on("tentouMaior", data => {
-        setText(data);
-        console.log(data)
-    });
-
-    Socket.on("tentouCerto", data => {
-        setText(data);
-        console.log(data)
-    });
-
-
-
-    function testando(event) {
-        event.preventDefault()
-        setChute(event.target.value);
-
     }
 
     return (
@@ -76,8 +44,8 @@ function GameOver() {
                 <div id="game" className="flex py-10 flex-col drop-shadow-2xl items-center bg-roxo rounded-3xl border-4 border-roxo-claro px-10">
                     <div className="flex flex-row mb-8">
                         <div className="flex flex-col text-center px-10 w-96">
-                            <p className="text-4xl text-center text-verde fredoka">Vencedor</p>
-                            <p className="text-2xl text-center text-white fredoka mb-10">player 1</p>
+                            <p className="text-4xl text-center text-verde fredoka">Ganhou</p>
+                            <p className="text-2xl text-center text-white fredoka mb-10">{p1}</p>
                             <span className="text-5xl text-center text-laranja fredoka">8</span>
                             <p className="text-2xl text-center text-white mb-1 fredoka">Chutes</p>
                             <p className="text-md text-center text-roxo-claro mb-5 fredoka">19, 79, 28, 45, 36, 42</p>
@@ -86,7 +54,7 @@ function GameOver() {
                         </div>
                         <div className="flex flex-col text-center px-10 w-96">
                             <p className="text-4xl text-center text-vermelho fredoka">Quer revanche</p>
-                            <p className="text-2xl text-center text-white fredoka mb-10">player 2</p>
+                            <p className="text-2xl text-center text-white fredoka mb-10">{p2}</p>
                             <span className="text-5xl text-center text-laranja fredoka">9</span>
                             <p className="text-2xl text-center text-white mb-1 fredoka">Chutes</p>
                             <p className="text-md text-center text-roxo-claro mb-5 fredoka">19, 79, 28, 45, 36, 42</p>
