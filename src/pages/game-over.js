@@ -1,8 +1,8 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 //import { Adsense } from '@ctrl/react-adsense';
-import {useLocation} from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Socket from '../services/socket.js';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 
@@ -26,9 +26,9 @@ function GameOver() {
     }, []);*/
 
 
-    function verificaNumero(numero){
-        Socket.emit("verifyAttempt", {numero, room}, Uint8Array.from([1, 2, 3, 4]));
-        setQtChutes(qtChutes + 1);        
+    function verificaNumero(numero) {
+        Socket.emit("verifyAttempt", { numero, room }, Uint8Array.from([1, 2, 3, 4]));
+        setQtChutes(qtChutes + 1);
     }
 
     Socket.on("tentouMenor", data => {
@@ -51,11 +51,11 @@ function GameOver() {
     function testando(event) {
         event.preventDefault()
         setChute(event.target.value);
-        
+
     }
 
     return (
-        <div id="S2-CASUAL" className="flex flex-col sm:flex-row w-full h-screen items-center content-center bg-green-800">
+        <div id="S2-CASUAL" className="flex flex-row h-screen items-center justify-between w-screen bg-bg">
             {/* <div id="ad1" className="w-1/6 left-0 hidden sm:block items-center">
                 <Adsense
                     client="ca-pub-0701250308092687"
@@ -64,18 +64,42 @@ function GameOver() {
                     format=""
                 />
             </div> */}
+            <div id="content" className="flex flex-col items-center justify-center min-w-full">
+                <header className="flex flex-col items-center justify-center w-96">
+                    <h1 className="text-5xl text-center text-laranja fredoka">bitwin</h1>
+                </header>
+                <p className="text-md text-center text-white mb-8 fredoka mb-10">GAME OVER - Sala {room}</p>
+
+
             <div id="announcer" className="flex flex-col text-center w-3/6 mx-auto">
-            
-                <div id="game" className="flex flex-col text-center w-full mx-auto border-4 border-green-500 bg-green-700 shadow-xl px-10 py-10 rounded-3xl">
-                    <p className="text-5xl text-center text-white fredoka mb-10">Você é campeão</p>
-                    <div>
-                        <p className="text-2xl text-left text-white mb-8 fredoka">Chutes do player 1 - <span className="text-4xl text-center text-green-900 mb-8 fredoka">16, 29, 78, 65,</span><span className="text-4xl text-center text-green-200 mb-8 fredoka">42</span></p>
-                        <p className="text-2xl text-left text-white mb-8 fredoka">Chutes do player 2 - <span className="text-4xl text-center text-green-900 mb-8 fredoka">7, 91, 13, 44, 29, 39,</span><span className="text-4xl text-center text-green-200 mb-8 fredoka">42</span></p>
+
+                <div id="game" className="flex py-10 flex-col drop-shadow-2xl items-center bg-roxo rounded-3xl border-4 border-roxo-claro px-10">
+                    <div className="flex flex-row mb-8">
+                        <div className="flex flex-col text-center px-10 w-96">
+                            <p className="text-4xl text-center text-verde fredoka">Vencedor</p>
+                            <p className="text-2xl text-center text-white fredoka mb-10">player 1</p>
+                            <span className="text-5xl text-center text-laranja fredoka">8</span>
+                            <p className="text-2xl text-center text-white mb-1 fredoka">Chutes</p>
+                            <p className="text-md text-center text-roxo-claro mb-5 fredoka">19, 79, 28, 45, 36, 42</p>
+                            <span className="text-5xl text-center text-laranja fredoka">1:22</span>
+                            <p className="text-2xl text-center text-white mb-1 fredoka">Tempo</p>
+                        </div>
+                        <div className="flex flex-col text-center px-10 w-96">
+                            <p className="text-4xl text-center text-vermelho fredoka">Quer revanche</p>
+                            <p className="text-2xl text-center text-white fredoka mb-10">player 2</p>
+                            <span className="text-5xl text-center text-laranja fredoka">9</span>
+                            <p className="text-2xl text-center text-white mb-1 fredoka">Chutes</p>
+                            <p className="text-md text-center text-roxo-claro mb-5 fredoka">19, 79, 28, 45, 36, 42</p>
+                            <span className="text-5xl text-center text-laranja fredoka">1:13</span>
+                            <p className="text-2xl text-center text-white mb-1 fredoka">Tempo</p>
+                        </div>
                     </div>
-                    <div className="flex justify-center mt-6">
+
+                    <div className="flex justify-center">
                         <Link id="btChute" to="/" className="py-3 border-4 border-yellow-600 border-opacity-60 w-72 text-2xl text-yellow-900 rounded-xl bg-yellow-400 fredoka shadow-md cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-1 hover:bg-yellow-300" >JOGAR NOVAMENTE</Link>
                     </div>
                 </div>
+            </div>
             </div>
 
             {/* <div id="ad2" className="w-1/6 right-0 hidden sm:block items-center">
